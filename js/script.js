@@ -56,11 +56,7 @@ let productos = libros.map(libros => { return new Producto(libros.id, libros.tit
 
 let productosEnVenta = document.getElementById("productosEnVenta")
 productosEnVenta.innerHTML = "<h1>Libros disponibles</h1>"
-let padre = getElementById("libros")
-for (const libro of libros) {
-    let liLibro = document.createElement("li")
-    liLibro.innerHTML = libro
-    padre.appenchild(li)
-}
+let contenedor = document.getElementById("productosCard")
 
-console.log(productosEnVenta.innerHTML)
+libros.map(libros => { contenedor.innerHTML += "<div> <h2>" + libros.titulo + " " + "<p>" + libros.autor + "</p> </h2> </div>" })
+
