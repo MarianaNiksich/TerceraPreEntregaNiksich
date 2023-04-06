@@ -58,5 +58,5 @@ let productosEnVenta = document.getElementById("productosEnVenta")
 productosEnVenta.innerHTML = "<h1>Libros disponibles</h1>"
 let contenedor = document.getElementById("productosCard")
 
-libros.map(libros => { contenedor.innerHTML += '<div class=libroCard><h2> ${libros.titulo} <p> ${libros.autor} </p> </h2> </div>' })
+libros.map(libros => { contenedor.innerHTML += `<div class=libroCard><h2>${libros.titulo}<p>${libros.autor}</p></h2> </div>` })
 
