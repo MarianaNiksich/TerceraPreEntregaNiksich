@@ -10,7 +10,9 @@
 
 #productosCard {
     display: flex;
-    flex-direction: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 
 }
 
@@ -26,4 +28,14 @@ body {
 
 header {
     background-color: #8fc0a9;
+}
+
+#productosEnVenta {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#productosEnVenta h1 {
+    font-weight: none;
 }
