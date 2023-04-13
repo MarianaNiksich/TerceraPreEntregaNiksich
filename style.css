@@ -1,6 +1,29 @@
 .libroCard {
-    border: solid 1px black;
+
+    border-radius: 10%;
+    width: 400px;
+    height: 700px;
+    padding: 5rem;
+    margin: 3rem;
+    background-color: #faf3dd;
+}
+
+#productosCard {
     display: flex;
-    flex-direction: column;
-    width: 50%;
+    flex-direction: wrap;
+
+}
+
+.cardImagen {
+    width: 500px;
+    height: 400px;
+}
+
+body {
+    background-color: #c8d5b9;
+
+}
+
+header {
+    background-color: #8fc0a9;
 }
