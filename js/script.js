@@ -65,7 +65,8 @@ productosEnVenta.innerHTML = "<h1>Libros disponibles</h1>"
 let contenedor = document.getElementById("productosCard")
 
 libros.map(libros => {
-    contenedor.innerHTML += `<div class=libroCard><h2>${libros.titulo}<p>${libros.autor}</p></h2>
+    contenedor.innerHTML += `<div class=libroCard><h2>${libros.titulo}</h2> 
+ <p>${libros.autor}</p>
  <div class=cardImagen> <img src="${libros.img}"></div> 
  <p> Precio: ${libros.precio}</p>
   <p>Unidades disponibles: ${libros.stock}</p></div>`
