@@ -75,12 +75,16 @@ function renderizarProductos(arrayProductos) {
     })
 }
 renderizarProductos(libros)
+let filtrado = document.getElementById("filtrado")
+filtrado.addEventListener("change", filtrar)
 
-let selectTarget = document.getElementById("selectTarget")
-selectTarget.innerHTML = `        <select name="filtrado" id="filtrado">
-<option value="">seleccione una opcion</option>
-<option value="literatura">filtrar libros literarios</option>
-<option value="idiomas">filtrar libros de estudio de idiomas</option>
-<option value="mayorMenor">filtrar por precio de mayor a menor</option>
-<option value="menorMayor">filtrar por precio de menor a mayor</option>
-</select>`
+function filtrar() {
+    let optionValor = filtrado.value
+    if (optionValor == literatura) {
+        libros.filter(libros => libros.genero == literatura)
+    } else if (optionValor == idiomas) {
+        libros.filer(libros => libros.genero == idiomas)
+    }
+
+
+}

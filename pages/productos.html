@@ -33,7 +33,13 @@
         </nav>
     </header>
     <div id="productosEnVenta"></div>
-    <div id="selectTarget">
+    <select name="filtrado" id="filtrado">
+        <option value="">seleccione una opcion</option>
+        <option value="literatura">filtrar libros literarios</option>
+        <option value="idiomas">filtrar libros de estudio de idiomas</option>
+        <option value="mayorMenor">filtrar por precio de mayor a menor</option>
+        <option value="menorMayor">filtrar por precio de menor a mayor</option>
+    </select>
     </div>
     <div id="productosCard"></div>
     <script src="../js/productos.js"></script>
