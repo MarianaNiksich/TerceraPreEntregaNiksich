@@ -63,10 +63,12 @@ let productos = libros.map(libros => { return new Producto(libros.id, libros.tit
 
 let productosEnVenta = document.getElementById("productosEnVenta")
 productosEnVenta.innerHTML = "<h1>Libros disponibles</h1>"
-let contenedor = document.getElementById("productosCard")
+
 
 function renderizarProductos(arrayProductos) {
-    libros.map(libros => {
+    let contenedor = document.getElementById("productosCard")
+
+    arrayProductos.map(libros => {
         contenedor.innerHTML += `<div class=libroCard ><h2>${libros.titulo}</h2> 
      <p>${libros.autor}</p>
      <div class=cardImagen> <img src="${libros.img}"></div> 
@@ -80,11 +82,11 @@ filtrado.addEventListener("change", filtrar)
 
 function filtrar() {
     let optionValor = filtrado.value
-    if (optionValor == literatura) {
-        libros.filter(libros => libros.genero == literatura)
-    } else if (optionValor == idiomas) {
-        libros.filer(libros => libros.genero == idiomas)
+    if (optionValor == "literatura") {
+        let = arrayFiltrado = libros.filter(libros => libros.genero == "literatura")
+    } else if (optionValor == "idiomas") {
+        arrayFiltrado = libros.filter(libros => libros.genero == "idiomas")
     }
-
-
+    console.log(arrayFiltrado)
+    renderizarProductos(arrayFiltrado)
 }
