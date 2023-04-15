@@ -67,7 +67,7 @@ productosEnVenta.innerHTML = "<h1>Libros disponibles</h1>"
 
 function renderizarProductos(arrayProductos) {
     let contenedor = document.getElementById("productosCard")
-
+    contenedor.innerHTML = " "
     arrayProductos.map(libros => {
         contenedor.innerHTML += `<div class=libroCard ><h2>${libros.titulo}</h2> 
      <p>${libros.autor}</p>
