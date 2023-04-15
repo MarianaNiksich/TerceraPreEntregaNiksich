@@ -73,7 +73,8 @@ function renderizarProductos(arrayProductos) {
      <p>${libros.autor}</p>
      <div class=cardImagen> <img src="${libros.img}"></div> 
      <p> Precio: ${libros.precio}</p>
-      <p>Unidades disponibles: ${libros.stock}</p></div >`
+      <p>Unidades disponibles: ${libros.stock}</p>
+      <button class="boton"> Agregar al carrito </button></div>`
     })
 }
 renderizarProductos(libros)
