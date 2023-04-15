@@ -60,15 +60,27 @@ let libros = [
 
 let productos = libros.map(libros => { return new Producto(libros.id, libros.titulo, libros.autor, libros.genero, libros.precio) })
 
+
 let productosEnVenta = document.getElementById("productosEnVenta")
 productosEnVenta.innerHTML = "<h1>Libros disponibles</h1>"
 let contenedor = document.getElementById("productosCard")
 
-libros.map(libros => {
-    contenedor.innerHTML += `<div class=libroCard><h2>${libros.titulo}</h2> 
- <p>${libros.autor}</p>
- <div class=cardImagen> <img src="${libros.img}"></div> 
- <p> Precio: ${libros.precio}</p>
-  <p>Unidades disponibles: ${libros.stock}</p></div>`
-})
+function renderizarProductos(arrayProductos) {
+    libros.map(libros => {
+        contenedor.innerHTML += `<div class=libroCard ><h2>${libros.titulo}</h2> 
+     <p>${libros.autor}</p>
+     <div class=cardImagen> <img src="${libros.img}"></div> 
+     <p> Precio: ${libros.precio}</p>
+      <p>Unidades disponibles: ${libros.stock}</p></div >`
+    })
+}
+renderizarProductos(libros)
 
+let selectTarget = document.getElementById("selectTarget")
+selectTarget.innerHTML = `        <select name="filtrado" id="filtrado">
+<option value="">seleccione una opcion</option>
+<option value="literatura">filtrar libros literarios</option>
+<option value="idiomas">filtrar libros de estudio de idiomas</option>
+<option value="mayorMenor">filtrar por precio de mayor a menor</option>
+<option value="menorMayor">filtrar por precio de menor a mayor</option>
+</select>`
