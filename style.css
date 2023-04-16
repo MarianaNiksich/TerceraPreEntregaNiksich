@@ -39,3 +39,17 @@ header {
 #productosEnVenta h1 {
     font-weight: none;
 }
+
+#filtrado {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 3rem 1rem;
+}
+
+#carrito {
+    height: 300px;
+    width: 200px;
+    border: solid black 1px;
+    margin: 3rem;
+}

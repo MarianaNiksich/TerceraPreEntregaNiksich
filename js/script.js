@@ -57,13 +57,13 @@ let libros = [
         img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUvGJ2BsLuor-IJIoZIJ1Ku94m224nvj7j8A&usqp=CAU"
     },
 ]
+let carrito = []
 
 let productos = libros.map(libros => { return new Producto(libros.id, libros.titulo, libros.autor, libros.genero, libros.precio) })
 
-
 let productosEnVenta = document.getElementById("productosEnVenta")
 productosEnVenta.innerHTML = "<h1>Libros disponibles</h1>"
-
+let carritoDom = document.getElementById("carrito")
 
 function renderizarProductos(arrayProductos) {
     let contenedor = document.getElementById("productosCard")
@@ -74,8 +74,15 @@ function renderizarProductos(arrayProductos) {
      <div class=cardImagen> <img src="${libros.img}"></div> 
      <p> Precio: ${libros.precio}</p>
       <p>Unidades disponibles: ${libros.stock}</p>
-      <button class="boton"> Agregar al carrito </button></div>`
+      <button id=${libros.id}> Agregar al carrito </button></div>`
+        let boton = document.getElementById(libros.id)
+        boton.addEventListener("click", agregarAlCarrito)
+        console.log(boton)
     })
+}
+
+function agregarAlCarrito(e) {
+    console.log(e.target.id)
 }
 renderizarProductos(libros)
 let filtrado = document.getElementById("filtrado")
