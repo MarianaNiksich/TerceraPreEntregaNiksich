@@ -59,11 +59,15 @@ let libros = [
 ]
 let carrito = []
 
+if (localStorage.getItem("productosAgregados")) {
+    carrito = JSON.parse(localStorage.getItem("productosAgregados"))
+    renderizarCarrito(carrito)
+}
 let productos = libros.map(libros => { return new Producto(libros.id, libros.titulo, libros.autor, libros.genero, libros.precio) })
 
 let productosEnVenta = document.getElementById("productosEnVenta")
 productosEnVenta.innerHTML = "<h1>Libros disponibles</h1>"
-let carritoDom = document.getElementById("carrito")
+
 
 function renderizarProductos(arrayProductos) {
     let contenedor = document.getElementById("productosCard")
@@ -102,13 +106,18 @@ function agregarAlCarrito(e) {
             })
         }
     }
+    localStorage.setItem("productosAgregados", JSON.stringify(carrito))
     renderizarCarrito(carrito)
     console.log(carrito)
 }
 
 function renderizarCarrito(arrayProductos) {
+    let carritoDom = document.getElementById("carrito")
     carritoDom.innerHTML = " "
-    arrayProductos.forEach(libros => carritoDom.innerHTML += `<h4>${libros.nombre}  ${libros.autor}  ${libros.subtotal}</h4>`)
+    arrayProductos.forEach(libros => carritoDom.innerHTML += `<h4 class="carritoH4"> ${libros.nombre} 
+     ${libros.autor} 
+     ${libros.subtotal}</h4>`)
+
 }
 renderizarProductos(libros)
 let filtrado = document.getElementById("filtrado")
