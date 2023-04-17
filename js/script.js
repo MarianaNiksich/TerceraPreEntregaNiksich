@@ -58,11 +58,23 @@ let libros = [
     },
 ]
 let carrito = []
+let botonComprar = document.getElementById("botonComprar")
+botonComprar.addEventListener("click", comprar)
+
+function comprar() {
+    alert("su compra ha finalizado")
+    localStorage.clear()
+    renderizarCarrito([])
+}
+
 
 if (localStorage.getItem("productosAgregados")) {
     carrito = JSON.parse(localStorage.getItem("productosAgregados"))
     renderizarCarrito(carrito)
 }
+
+
+
 let productos = libros.map(libros => { return new Producto(libros.id, libros.titulo, libros.autor, libros.genero, libros.precio) })
 
 let productosEnVenta = document.getElementById("productosEnVenta")
@@ -88,6 +100,7 @@ function renderizarProductos(arrayProductos) {
 }
 
 function agregarAlCarrito(e) {
+
     console.log(e.target.id)
     let libroBuscado = libros.find(libro => libro.id === Number(e.target.id))
     if (libroBuscado) {
@@ -111,14 +124,14 @@ function agregarAlCarrito(e) {
     console.log(carrito)
 }
 
-function renderizarCarrito(arrayProductos) {
+function renderizarCarrito(arrayProductosCarrito) {
     let carritoDom = document.getElementById("carrito")
     carritoDom.innerHTML = " "
-    arrayProductos.forEach(libros => carritoDom.innerHTML += `<h4 class="carritoH4"> ${libros.nombre} 
+    arrayProductosCarrito.map(libros => carritoDom.innerHTML += `<div><h4 class="carritoH4"> ${libros.nombre} 
      ${libros.autor} 
-     ${libros.subtotal}</h4>`)
-
+     ${libros.subtotal}</h4></div>`)
 }
+
 renderizarProductos(libros)
 let filtrado = document.getElementById("filtrado")
 filtrado.addEventListener("change", filtrar)

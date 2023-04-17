@@ -8,7 +8,4 @@ class Producto {
         this.stock = stock
     }
 
-    nombre() {
-        return this.titulo + ", " + this.autor
-    }
 }
