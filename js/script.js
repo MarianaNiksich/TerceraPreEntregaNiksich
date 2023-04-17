@@ -108,7 +108,7 @@ function agregarAlCarrito(e) {
 
 function renderizarCarrito(arrayProductos) {
     carritoDom.innerHTML = " "
-    arrayProductos.forEach(libros => carritoDom.innerHTML += libros.nombre)
+    arrayProductos.forEach(libros => carritoDom.innerHTML += `<h4>${libros.nombre}  ${libros.autor}  ${libros.subtotal}</h4>`)
 }
 renderizarProductos(libros)
 let filtrado = document.getElementById("filtrado")
