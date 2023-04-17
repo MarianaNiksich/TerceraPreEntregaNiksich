@@ -68,16 +68,18 @@ let carritoDom = document.getElementById("carrito")
 function renderizarProductos(arrayProductos) {
     let contenedor = document.getElementById("productosCard")
     contenedor.innerHTML = " "
-    arrayProductos.map(libros => {
+    arrayProductos.forEach(libros => {
+        const div = document.createElement("div")
         contenedor.innerHTML += `<div class=libroCard ><h2>${libros.titulo}</h2> 
      <p>${libros.autor}</p>
      <div class=cardImagen> <img src="${libros.img}"></div> 
      <p> Precio: ${libros.precio}</p>
       <p>Unidades disponibles: ${libros.stock}</p>
       <button id=${libros.id}> Agregar al carrito </button></div>`
+        contenedor.appendChild(div)
         let boton = document.getElementById(libros.id)
         boton.addEventListener("click", agregarAlCarrito)
-        console.log(boton)
+
     })
 }
 
