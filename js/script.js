@@ -121,7 +121,6 @@ function agregarAlCarrito(e) {
     }
     localStorage.setItem("productosAgregados", JSON.stringify(carrito))
     renderizarCarrito(carrito)
-    console.log(carrito)
 }
 
 function renderizarCarrito(arrayProductosCarrito) {
@@ -143,6 +142,5 @@ function filtrar() {
     } else if (optionValor == "idiomas") {
         arrayFiltrado = libros.filter(libros => libros.genero == "idiomas")
     }
-    console.log(arrayFiltrado)
     renderizarProductos(arrayFiltrado)
 }
