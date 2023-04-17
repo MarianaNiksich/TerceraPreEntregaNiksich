@@ -70,7 +70,7 @@ function renderizarProductos(arrayProductos) {
     contenedor.innerHTML = " "
     arrayProductos.forEach(libros => {
         const div = document.createElement("div")
-        contenedor.innerHTML += `<div class=libroCard ><h2>${libros.titulo}</h2> 
+        div.innerHTML += `<div class=libroCard ><h2>${libros.titulo}</h2> 
      <p>${libros.autor}</p>
      <div class=cardImagen> <img src="${libros.img}"></div> 
      <p> Precio: ${libros.precio}</p>
@@ -85,6 +85,30 @@ function renderizarProductos(arrayProductos) {
 
 function agregarAlCarrito(e) {
     console.log(e.target.id)
+    let libroBuscado = libros.find(libro => libro.id === Number(e.target.id))
+    if (libroBuscado) {
+        let libroBuscadoPosicion = carrito.findIndex(libro => libro.id === libroBuscado.id)
+        if (libroBuscadoPosicion != -1) {
+            carrito[libroBuscadoPosicion].unidades++
+            carrito[libroBuscadoPosicion].subtotal = carrito[libroBuscadoPosicion].precioUnidad * carrito[libroBuscadoPosicion].unidades
+        } else {
+            carrito.push({
+                nombre: libroBuscado.titulo,
+                autor: libroBuscado.autor,
+                precioUnidad: libroBuscado.precio,
+                subtotal: libroBuscado.precio,
+                unidades: 1,
+                id: libroBuscado.id,
+            })
+        }
+    }
+    renderizarCarrito(carrito)
+    console.log(carrito)
+}
+
+function renderizarCarrito(arrayProductos) {
+    carritoDom.innerHTML = " "
+    arrayProductos.forEach(libros => carritoDom.innerHTML += libros.nombre)
 }
 renderizarProductos(libros)
 let filtrado = document.getElementById("filtrado")
