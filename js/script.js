@@ -157,5 +157,8 @@ function filtrar() {
     } else if (optionValor == "menorMayor") {
         arrayFiltrado = libros.sort((a, b) => a.precio - b.precio)
         renderizarProductos(arrayFiltrado)
+    } else if (optionValor == "mayorMenor") {
+        arrayFiltrado = libros.sort((a, b) => b.precio - a.precio)
+        renderizarProductos(arrayFiltrado)
     }
 }
