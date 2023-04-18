@@ -145,5 +145,17 @@ function filtrar() {
         renderizarProductos(arrayFiltrado)
     } else if (optionValor == "opcion") {
         renderizarProductos(libros)
+    } else if (optionValor == "alfabetico") {
+        arrayFiltrado = libros.sort((a, b) => {
+            if (a.titulo > b.titulo) {
+                return 1
+            } if (a.titulo < b.titulo) {
+                return -1
+            } return 0
+        })
+        renderizarProductos(arrayFiltrado)
+    } else if (optionValor == "menorMayor") {
+        arrayFiltrado = libros.sort((a, b) => a.precio - b.precio)
+        renderizarProductos(arrayFiltrado)
     }
 }
