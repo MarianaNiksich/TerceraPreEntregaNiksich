@@ -91,7 +91,7 @@ function renderizarProductos(arrayProductos) {
      <div class=cardImagen> <img src="${libros.img}"></div> 
      <p> Precio: ${libros.precio}</p>
       <p>Unidades disponibles: ${libros.stock}</p>
-      <button id=${libros.id}> Agregar al carrito </button></div>`
+      <button id=${libros.id} class="btn"> Agregar al carrito </button></div>`
         contenedor.appendChild(div)
         let boton = document.getElementById(libros.id)
         boton.addEventListener("click", agregarAlCarrito)

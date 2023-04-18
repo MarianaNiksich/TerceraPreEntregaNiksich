@@ -33,17 +33,19 @@
         </nav>
     </header>
     <div id="productosEnVenta"></div>
-    <select name="filtrado" id="filtrado">
+    <select name="filtrado" id="filtrado" class="form-select" class="selectFiltrar" aria-label="Default select example">
         <option value="">seleccione una opcion</option>
         <option value="literatura">filtrar libros literarios</option>
         <option value="idiomas">filtrar libros de estudio de idiomas</option>
+        <option value="menorMayor">F¡filtrar por menor precio al mayor</option>
+        <option value="alfabetico">filtrar alfabeticamente</option>
     </select>
     </div>
     <div id="productosCard"></div>
     <div id="carrito">
 
     </div>
-    <button id="botonComprar">Comprar</button>
+    <button id="botonComprar" class="btn">Comprar</button>
     <script src="../js/productos.js"></script>
     <script src="../js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
