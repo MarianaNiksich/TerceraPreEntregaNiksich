@@ -139,8 +139,11 @@ function filtrar() {
     let optionValor = filtrado.value
     if (optionValor == "literatura") {
         let = arrayFiltrado = libros.filter(libros => libros.genero == "literatura")
+        renderizarProductos(arrayFiltrado)
     } else if (optionValor == "idiomas") {
         arrayFiltrado = libros.filter(libros => libros.genero == "idiomas")
+        renderizarProductos(arrayFiltrado)
+    } else if (optionValor == "opcion") {
+        renderizarProductos(libros)
     }
-    renderizarProductos(arrayFiltrado)
 }
