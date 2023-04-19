@@ -91,7 +91,7 @@ function renderizarProductos(arrayProductos) {
      <div class=cardImagen> <img src="${libros.img}"></div> 
      <p> Precio: ${libros.precio}</p>
       <p>Unidades disponibles: ${libros.stock}</p>
-      <button id=${libros.id} class="btn"> Agregar al carrito </button></div>`
+      <button id=${libros.id} class="btn btn-dark"> Agregar al carrito </button></div>`
         contenedor.appendChild(div)
         let boton = document.getElementById(libros.id)
         boton.addEventListener("click", agregarAlCarrito)
@@ -124,11 +124,13 @@ function agregarAlCarrito(e) {
 }
 
 function renderizarCarrito(arrayProductosCarrito) {
-    let carritoDom = document.getElementById("carrito")
-    carritoDom.innerHTML = " "
-    arrayProductosCarrito.map(libros => carritoDom.innerHTML += `<div><h4 class="carritoH4"> ${libros.nombre} 
-     ${libros.autor} 
-     ${libros.subtotal}</h4></div>`)
+    let tituloLibro = document.getElementsByClassName("tituloLibro")
+    let autorLibro = document.getElementsByClassName("autorLibro")
+    let precioLibro = document.getElementsByName("precioLibro")
+    arrayProductosCarrito.forEach(libros => (tituloLibro.innerText += `${libros.titulos}`,
+        autorLibro.innerText += `${libros.autor}`, precioLibro.innerText += `${libros.subtotal}`))
+    console.log(arrayProductosCarrito)
+    console.log(tituloLibro)
 }
 
 renderizarProductos(libros)
