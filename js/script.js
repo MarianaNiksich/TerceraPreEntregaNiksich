@@ -127,7 +127,7 @@ function renderizarCarrito(arrayProductosCarrito) {
     let tituloLibro = document.getElementsByClassName("tituloLibro")
     let autorLibro = document.getElementsByClassName("autorLibro")
     let precioLibro = document.getElementsByName("precioLibro")
-    arrayProductosCarrito.forEach(libros => (tituloLibro.innerText += `${libros.titulos}`,
+    arrayProductosCarrito.forEach(libros => (tituloLibro.innerText += `${libros.titulo}`,
         autorLibro.innerText += `${libros.autor}`, precioLibro.innerText += `${libros.subtotal}`))
     console.log(arrayProductosCarrito)
     console.log(tituloLibro)
