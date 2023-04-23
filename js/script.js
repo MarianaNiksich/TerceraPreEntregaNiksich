@@ -68,11 +68,6 @@ function comprar() {
 }
 
 
-if (localStorage.getItem("productosAgregados")) {
-    carrito = JSON.parse(localStorage.getItem("productosAgregados"))
-    renderizarCarrito(carrito)
-}
-
 
 
 let productos = libros.map(libros => { return new Producto(libros.id, libros.titulo, libros.autor, libros.genero, libros.precio) })
@@ -119,18 +114,29 @@ function agregarAlCarrito(e) {
             })
         }
     }
-    localStorage.setItem("productosAgregados", JSON.stringify(carrito))
+
     renderizarCarrito(carrito)
+    console.log(carrito)
 }
 
 function renderizarCarrito(arrayProductosCarrito) {
     let tituloLibro = document.getElementsByClassName("tituloLibro")
     let autorLibro = document.getElementsByClassName("autorLibro")
     let precioLibro = document.getElementsByName("precioLibro")
-    arrayProductosCarrito.forEach(libros => (tituloLibro.innerText += `${libros.titulo}`,
-        autorLibro.innerText += `${libros.autor}`, precioLibro.innerText += `${libros.subtotal}`))
-    console.log(arrayProductosCarrito)
-    console.log(tituloLibro)
+    let carrito1 = document.getElementById("carrito1")
+    carrito1.innerHTML = " "
+    arrayProductosCarrito.map(libros => {
+        const contenedorCarrito = document.createElement("div")
+        contenedorCarrito.innerHTML += `<tbody>
+    <tr>
+        <th scope="row"><button id="eliminar" class="btn btn-dark">x</button></th>
+        <td class="tituloLibro">${libros.nombre}</td>
+        <td class="autorLibro">${libros.autor}</td>
+        <td class="precioLibro">${libros.subtotal}</td>
+    </tr>
+    </tbody>`
+        carrito1.appendChild(contenedorCarrito)
+    })
 }
 
 renderizarProductos(libros)
