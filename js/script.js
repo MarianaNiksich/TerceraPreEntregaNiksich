@@ -121,7 +121,6 @@ function agregarAlCarrito(e) {
     }
     localStorage.setItem("agregarProductos", JSON.stringify(carrito))
     renderizarCarrito(carrito)
-    console.log(carrito)
 }
 
 function renderizarCarrito(arrayProductosCarrito) {
@@ -131,7 +130,6 @@ function renderizarCarrito(arrayProductosCarrito) {
         const contenedorCarrito = document.createElement("div")
         contenedorCarrito.innerHTML += `<tbody>
     <tr>
-        <th scope="row"><button id="eliminar" class="btn btn-dark">x</button></th>
         <td class="tituloLibro">${libros.nombre}</td>
         <td class="autorLibro">${libros.autor}</td>
         <td class="precioLibro">${libros.subtotal}</td>
@@ -140,6 +138,7 @@ function renderizarCarrito(arrayProductosCarrito) {
         carrito1.appendChild(contenedorCarrito)
     })
 }
+
 
 renderizarProductos(libros)
 let filtrado = document.getElementById("filtrado")
