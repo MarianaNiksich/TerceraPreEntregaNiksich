@@ -63,11 +63,15 @@ botonComprar.addEventListener("click", comprar)
 
 function comprar() {
     alert("su compra ha finalizado")
-    localStorage.clear()
+    localStorage.removeItem("agregarProductos")
     renderizarCarrito([])
+    carrito = []
 }
 
-
+if (localStorage.getItem("agregarProductos")) {
+    carrito = JSON.parse(localStorage.getItem("agregarProductos"))
+    renderizarCarrito(carrito)
+}
 
 
 let productos = libros.map(libros => { return new Producto(libros.id, libros.titulo, libros.autor, libros.genero, libros.precio) })
@@ -112,17 +116,15 @@ function agregarAlCarrito(e) {
                 unidades: 1,
                 id: libroBuscado.id,
             })
+
         }
     }
-
+    localStorage.setItem("agregarProductos", JSON.stringify(carrito))
     renderizarCarrito(carrito)
     console.log(carrito)
 }
 
 function renderizarCarrito(arrayProductosCarrito) {
-    let tituloLibro = document.getElementsByClassName("tituloLibro")
-    let autorLibro = document.getElementsByClassName("autorLibro")
-    let precioLibro = document.getElementsByName("precioLibro")
     let carrito1 = document.getElementById("carrito1")
     carrito1.innerHTML = " "
     arrayProductosCarrito.map(libros => {
