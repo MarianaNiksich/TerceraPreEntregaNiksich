@@ -1,12 +1,12 @@
 fetch("../data.json")
     .then(respuesta => respuesta.json())
-    .then(datosProductos => console.log(datosProductos))
+    .then(datosProductos => miPrograma(datosProductos))
 
 function miPrograma(datosProductos) {
     let carrito = []
     let botonComprar = document.getElementById("botonComprar")
     botonComprar.addEventListener("click", comprar)
-
+    renderizarProductos(datosProductos)
     function comprar() {
         alert("su compra ha finalizado")
         localStorage.removeItem("agregarProductos")
@@ -20,16 +20,16 @@ function miPrograma(datosProductos) {
     }
 
 
-    let productos = libros.map(libros => { return new Producto(libros.id, libros.titulo, libros.autor, libros.genero, libros.precio) })
+    let productos = datosProductos.map(libros => { return new Producto(libros.id, libros.titulo, libros.autor, libros.genero, libros.precio) })
 
     let productosEnVenta = document.getElementById("productosEnVenta")
     productosEnVenta.innerHTML = "<h1>Libros disponibles</h1>"
 
 
-    function renderizarProductos(arrayProductos) {
+    function renderizarProductos(datosProductos) {
         let contenedor = document.getElementById("productosCard")
         contenedor.innerHTML = " "
-        arrayProductos.forEach(libros => {
+        datosProductos.forEach(libros => {
             const div = document.createElement("div")
             div.innerHTML += `<div class=libroCard ><h2>${libros.titulo}</h2> 
      <p>${libros.autor}</p>
@@ -47,7 +47,7 @@ function miPrograma(datosProductos) {
     function agregarAlCarrito(e) {
 
         console.log(e.target.id)
-        let libroBuscado = libros.find(libro => libro.id === Number(e.target.id))
+        let libroBuscado = datosProductos.find(libro => libro.id === Number(e.target.id))
         if (libroBuscado) {
             let libroBuscadoPosicion = carrito.findIndex(libro => libro.id === libroBuscado.id)
             if (libroBuscadoPosicion != -1) {
@@ -86,7 +86,7 @@ function miPrograma(datosProductos) {
     }
 
 
-    renderizarProductos(libros)
+
     let filtrado = document.getElementById("filtrado")
     filtrado.addEventListener("change", filtrar)
 
