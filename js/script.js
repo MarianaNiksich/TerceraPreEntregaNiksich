@@ -35,7 +35,7 @@ function miPrograma(datosProductos) {
      <p>${libros.autor}</p>
      <div class=cardImagen> <img src="${libros.img}"></div> 
      <p> Precio: ${libros.precio}</p>
-      <p>Unidades disponibles: ${libros.stock}</p>
+     <p> Envio gratis</p>
       <button id=${libros.id} class="btn btn-dark"> Agregar al carrito </button></div>`
             contenedor.appendChild(div)
             let boton = document.getElementById(libros.id)
@@ -93,28 +93,27 @@ function miPrograma(datosProductos) {
     function filtrar() {
         let optionValor = filtrado.value
         if (optionValor == "literatura") {
-            let = arrayFiltrado = libros.filter(libros => libros.genero == "literatura")
-            renderizarProductos(arrayFiltrado)
+            let = arrayFiltrado = datosProductos.filter(libros => libros.genero == "literatura")
+
         } else if (optionValor == "idiomas") {
-            arrayFiltrado = libros.filter(libros => libros.genero == "idiomas")
-            renderizarProductos(arrayFiltrado)
-        } else if (optionValor == "opcion") {
-            renderizarProductos(libros)
+            arrayFiltrado = datosProductos.filter(libros => libros.genero == "idiomas")
+
         } else if (optionValor == "alfabetico") {
-            arrayFiltrado = libros.sort((a, b) => {
+            arrayFiltrado = datosProductos.sort((a, b) => {
                 if (a.titulo > b.titulo) {
                     return 1
                 } if (a.titulo < b.titulo) {
                     return -1
                 } return 0
             })
-            renderizarProductos(arrayFiltrado)
+
         } else if (optionValor == "menorMayor") {
-            arrayFiltrado = libros.sort((a, b) => a.precio - b.precio)
-            renderizarProductos(arrayFiltrado)
+            arrayFiltrado = datosProductos.sort((a, b) => a.precio - b.precio)
+
         } else if (optionValor == "mayorMenor") {
-            arrayFiltrado = libros.sort((a, b) => b.precio - a.precio)
-            renderizarProductos(arrayFiltrado)
+            arrayFiltrado = datosProductos.sort((a, b) => b.precio - a.precio)
+
         }
+        renderizarProductos(arrayFiltrado)
     }
 }
