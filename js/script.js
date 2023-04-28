@@ -8,7 +8,11 @@ function miPrograma(datosProductos) {
     botonComprar.addEventListener("click", comprar)
     renderizarProductos(datosProductos)
     function comprar() {
-        alert("su compra ha finalizado")
+        Swal.fire(
+            'Gracias por su compra!',
+            'su envio está siendo despachado!',
+            'success'
+        )
         localStorage.removeItem("agregarProductos")
         renderizarCarrito([])
         carrito = []
